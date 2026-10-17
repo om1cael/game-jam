@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
 
     private Camera cam;
+    private bool mouseWarningLogged;
 
 
 
@@ -24,7 +26,8 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         cam = Camera.main;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
     }
 
@@ -48,7 +51,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Vector2 mouseScreenPos = inputActions.Player.Look.ReadValue<Vector2>();
+        if (Mouse.current == null)
+        {
+            if (!mouseWarningLogged)
+            {
+                Debug.LogWarning("PlayerController cannot aim because no mouse input device is available.", this);
+                mouseWarningLogged = true;
+            }
+
+            return;
+        }
+
+        Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
 
         Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(
             mouseScreenPos.x,
