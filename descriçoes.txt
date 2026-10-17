@@ -1,0 +1,8 @@
+1. Reator
+Uma máquina que fornece energia para manter os sistemas da nave funcionando.
+2. Rádio de telecomunicações
+Um equipamento usado para enviar e receber mensagens de outras naves ou estações espaciais.
+3. Bateria
+Uma unidade de armazenamento de energia que mantém os equipamentos funcionando quando o reator está desligado.
+4. Escotilha da nave
+Uma porta reforçada que permite entrar e sair da nave, mantendo o interior protegido do espaço.
