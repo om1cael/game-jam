@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c89bcb6909f5a2c18b2c47bba5ca563, type: 3}
+  m_Name: Battery
+  m_EditorClassIdentifier: Assembly-CSharp::RewardSO
+  rewardImage: {fileID: 110063094613122208, guid: 984aa9abf761b3518a8b1fe8798711c2, type: 3}
+  rewardName: Bateria
+  description: "Uma unidade de armazenamento de energia que mant\xE9m os equipamentos
+    funcionando quando o reator est\xE1 desligado."

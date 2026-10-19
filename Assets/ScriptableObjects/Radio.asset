@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c89bcb6909f5a2c18b2c47bba5ca563, type: 3}
+  m_Name: Radio
+  m_EditorClassIdentifier: Assembly-CSharp::RewardSO
+  rewardImage: {fileID: 1084495889696105424, guid: cc2c0af549a3ff73fad145e17b32a935, type: 3}
+  rewardName: Radio
+  description: "Um equipamento usado para enviar e receber mensagens de outras naves
+    ou esta\xE7\xF5es espaciais."
