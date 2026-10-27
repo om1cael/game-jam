@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cmfwqwj72enq0"]
+
+[ext_resource type="Texture2D" uid="uid://dnr7hw8y15e0x" path="res://Sprites/Player/gun.png" id="1_nxj5y"]
+[ext_resource type="Script" uid="uid://bep2eje254fl6" path="res://Scripts/gun.gd" id="1_oqrbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgfsc"]
+size = Vector2(12, 12)
+
+[node name="Gun" type="Area2D" unique_id=1148925495]
+script = ExtResource("1_oqrbh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1108996427]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_nxj5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=486347344]
+position = Vector2(11, -3)
+shape = SubResource("RectangleShape2D_dgfsc")
+
+[node name="BulletSpawnPos" type="Node2D" parent="." unique_id=1558683811]
+position = Vector2(23, 0)
