@@ -1,18 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://urm6sjix1ksm"]
 
-[ext_resource type="Script" path="res://Scripts/boss.gd" id="1_boss"]
+[ext_resource type="Script" uid="uid://d4en6n86aor1n" path="res://Scripts/boss.gd" id="1_boss"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boss"]
 radius = 46.0
 
-[node name="Boss" type="CharacterBody2D" groups=["enemy", "boss"]]
+[node name="Boss" type="CharacterBody2D" unique_id=1639618634 groups=["boss", "enemy"]]
 collision_layer = 2
-collision_mask = 1
 script = ExtResource("1_boss")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=614746018]
 collision_layer = 2
-collision_mask = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1012318352]
 shape = SubResource("CircleShape2D_boss")
