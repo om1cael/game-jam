@@ -7,13 +7,11 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxrlw"]
 texture = ExtResource("1_ebmjs")
-texture_region_size = Vector2i(11, 16)
-0:0/size_in_atlas = Vector2i(5, 3)
+texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
-5:0/size_in_atlas = Vector2i(6, 4)
-5:0/0 = 0
-11:0/size_in_atlas = Vector2i(6, 4)
-11:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_dgfsc"]
 tile_size = Vector2i(48, 48)
