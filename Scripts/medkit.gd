@@ -23,12 +23,16 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player") or bool(body.get("is_dead")):
 		return
 	body.call("heal", HEAL_AMOUNT)
+	AudioManager.play_sfx("pickup")
 	queue_free()
 
+const MEDKIT_TEXTURE: Texture2D = preload("res://Sprites/medkit.png")
+
 func _draw() -> void:
-	var pulse: float = 0.15 + 0.08 * sin(animation_time * 4.0)
-	draw_rect(Rect2(Vector2(-16, -16), Vector2(32, 32)), Color(0.12, 0.95, 0.68, pulse))
-	draw_rect(Rect2(Vector2(-12, -12), Vector2(24, 24)), Color(0.04, 0.2, 0.2))
-	draw_rect(Rect2(Vector2(-8, -8), Vector2(16, 16)), Color(0.78, 0.98, 0.84))
-	draw_rect(Rect2(Vector2(-4, -12), Vector2(8, 24)), Color(0.15, 0.82, 0.53))
-	draw_rect(Rect2(Vector2(-12, -4), Vector2(24, 8)), Color(0.15, 0.82, 0.53))
+	var pulse: float = 0.16 + 0.1 * sin(animation_time * 4.0)
+	var fading: float = 1.0
+	if lifetime < 4.0:
+		fading = 0.45 + 0.55 * absf(sin(animation_time * 10.0))
+	draw_circle(Vector2.ZERO, 22.0, Color(0.2, 0.95, 0.55, pulse * fading))
+	draw_circle(Vector2.ZERO, 15.0, Color(0.2, 0.95, 0.55, pulse * 1.4 * fading))
+	draw_texture(MEDKIT_TEXTURE, -MEDKIT_TEXTURE.get_size() * 0.5, Color(1, 1, 1, fading))

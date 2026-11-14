@@ -89,7 +89,8 @@ position = Vector2(41, 6)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=392825729]
 position = Vector2(0, -4.7683716e-07)
-scale = Vector2(0.342, 0.5)
+scale = Vector2(0.48, 0.48)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dgfsc")
 frame_progress = 0.017084494
 

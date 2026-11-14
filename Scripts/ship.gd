@@ -1,5 +1,7 @@
 extends Node2D
 
+const SHIP_TEXTURE: Texture2D = preload("res://Sprites/ship.png")
+
 var animation_time: float = 0.0
 
 func _process(delta: float) -> void:
@@ -7,24 +9,16 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	var engine_glow: float = 0.55 + 0.2 * sin(animation_time * 4.0)
-	draw_circle(Vector2(0, 4), 38.0, Color(0.16, 0.055, 0.045, 0.32))
-	draw_rect(Rect2(-36, -12, 12, 36), Color(0.24, 0.09, 0.075))
-	draw_rect(Rect2(24, -12, 12, 36), Color(0.24, 0.09, 0.075))
-	draw_rect(Rect2(-32, -8, 8, 28), Color(0.72, 0.28, 0.16))
-	draw_rect(Rect2(24, -8, 8, 28), Color(0.72, 0.28, 0.16))
-	draw_rect(Rect2(-28, -4, 8, 20), Color(0.94, 0.57, 0.32))
-	draw_rect(Rect2(20, -4, 8, 20), Color(0.94, 0.57, 0.32))
-	draw_rect(Rect2(-16, 24, 32, 12), Color(0.3, 0.105, 0.075))
-	draw_rect(Rect2(-12, 24, 24, 8), Color(0.77, 0.3, 0.15))
-	draw_rect(Rect2(-8, 32, 16, 12), Color(1.0, 0.42, 0.16, engine_glow))
-	draw_rect(Rect2(-4, 36, 8, 8), Color(1.0, 0.8, 0.47, engine_glow))
-	draw_rect(Rect2(-20, -16, 40, 40), Color(0.26, 0.09, 0.07))
-	draw_rect(Rect2(-16, -24, 32, 44), Color(0.78, 0.31, 0.17))
-	draw_rect(Rect2(-12, -32, 24, 40), Color(0.91, 0.54, 0.31))
-	draw_rect(Rect2(-8, -40, 16, 12), Color(0.97, 0.75, 0.49))
-	draw_rect(Rect2(-8, -24, 16, 16), Color(0.19, 0.23, 0.25))
-	draw_rect(Rect2(-4, -20, 8, 8), Color(0.55, 0.83, 0.84))
-	draw_rect(Rect2(-12, 0, 24, 8), Color(0.99, 0.78, 0.54))
-	draw_rect(Rect2(-8, 8, 16, 8), Color(0.67, 0.22, 0.13))
-	draw_rect(Rect2(-4, 12, 8, 4), Color(0.3, 0.105, 0.075))
+	var flicker: float = 0.55 + 0.2 * sin(animation_time * 9.0) + 0.1 * sin(animation_time * 23.0)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	draw_circle(Vector2(0, 8), 46.0, Color(0.1, 0.03, 0.03, 0.28))
+	var base_position: Vector2 = Vector2(-SHIP_TEXTURE.get_width() * 0.5, -SHIP_TEXTURE.get_height() * 0.5 - 2.0)
+	draw_texture(SHIP_TEXTURE, base_position)
+	# chama do motor
+	var flame_top: float = base_position.y + SHIP_TEXTURE.get_height() - 2.0
+	draw_rect(Rect2(-9.0, flame_top, 18.0, 14.0 * flicker + 6.0), Color(1.0, 0.42, 0.16, 0.55))
+	draw_rect(Rect2(-5.0, flame_top, 10.0, 12.0 * flicker + 4.0), Color(1.0, 0.82, 0.5, 0.85))
+	# luz de navegação piscando
+	var blink: float = 1.0 if fmod(animation_time, 1.2) < 0.25 else 0.25
+	draw_rect(Rect2(-26.0, 22.0, 4.0, 4.0), Color(1.0, 0.25, 0.2, blink))
+	draw_rect(Rect2(22.0, 22.0, 4.0, 4.0), Color(0.3, 1.0, 0.5, blink))

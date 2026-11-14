@@ -9,7 +9,10 @@ radius = 46.0
 collision_layer = 2
 script = ExtResource("1_boss")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=614746018]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1012318352]

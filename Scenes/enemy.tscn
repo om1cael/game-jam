@@ -1,49 +1,46 @@
 [gd_scene format=3 uid="uid://6m22qo44xr7s"]
 
 [ext_resource type="Script" uid="uid://dw0buii1ht4l4" path="res://Scripts/enemy.gd" id="1_8uf12"]
-[ext_resource type="Texture2D" uid="uid://ti161i0f2sv0" path="res://Sprites/Enemy/Walk/sprite_0.png" id="1_auwsv"]
-[ext_resource type="Texture2D" uid="uid://cxmy6skfu75v6" path="res://Sprites/Enemy/Walk/sprite_1.png" id="2_8uf12"]
-[ext_resource type="Texture2D" uid="uid://nibksecwwm54" path="res://Sprites/Enemy/Walk/sprite_2.png" id="3_po0sg"]
-[ext_resource type="Texture2D" uid="uid://bwp1fj0xmya02" path="res://Sprites/Enemy/Walk/sprite_3.png" id="4_haro7"]
-[ext_resource type="Texture2D" uid="uid://dmjdk3bfwg5yq" path="res://Sprites/Enemy/Walk/sprite_4.png" id="5_56vhr"]
-[ext_resource type="Texture2D" uid="uid://iaijnu1f6b84" path="res://Sprites/Enemy/Walk/sprite_5.png" id="6_ta2yt"]
-[ext_resource type="Texture2D" uid="uid://d20mdvjepsrsq" path="res://Sprites/Enemy/Walk/sprite_6.png" id="7_m4x7e"]
-[ext_resource type="Texture2D" uid="uid://pync1v7eel5y" path="res://Sprites/Enemy/Walk/sprite_7.png" id="8_vt4ob"]
+[ext_resource type="Texture2D" path="res://Sprites/Enemy/Variants/normal_walk.png" id="2_normal"]
 [ext_resource type="Texture2D" uid="uid://com1xsarturlk" path="res://Sprites/laser.png" id="10_po0sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eiqrc"]
 size = Vector2(11, 42)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_normal_0"]
+atlas = ExtResource("2_normal")
+region = Rect2(0, 0, 128, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_normal_1"]
+atlas = ExtResource("2_normal")
+region = Rect2(128, 0, 128, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_normal_2"]
+atlas = ExtResource("2_normal")
+region = Rect2(256, 0, 128, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_normal_3"]
+atlas = ExtResource("2_normal")
+region = Rect2(384, 0, 128, 120)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dgfsc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_auwsv")
+"texture": SubResource("AtlasTexture_normal_0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_8uf12")
+"texture": SubResource("AtlasTexture_normal_1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_po0sg")
+"texture": SubResource("AtlasTexture_normal_2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_haro7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_56vhr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ta2yt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_m4x7e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_vt4ob")
+"texture": SubResource("AtlasTexture_normal_3")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 15.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgfsc"]
@@ -127,7 +124,8 @@ position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_eiqrc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1966245815]
-scale = Vector2(0.277, 0.35)
+scale = Vector2(0.38, 0.38)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dgfsc")
 frame_progress = 0.20882113
 
