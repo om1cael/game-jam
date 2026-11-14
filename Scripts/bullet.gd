@@ -1,9 +1,11 @@
 extends Area2D
 
-const SPEED: float = 800.0
+const BASE_SPEED: float = 800.0
 const MAX_LIFETIME: float = 1.8
 
 var damage: int = 12
+var speed: float = BASE_SPEED
+var base_speed: float = BASE_SPEED
 var direction: Vector2 = Vector2.RIGHT
 var lifetime: float = MAX_LIFETIME
 
@@ -12,7 +14,7 @@ func set_direction(value: Vector2) -> void:
 	rotation = direction.angle()
 
 func _physics_process(delta: float) -> void:
-	global_position += direction * SPEED * delta
+	global_position += direction * speed * delta
 	lifetime -= delta
 	if lifetime <= 0.0:
 		queue_free()
